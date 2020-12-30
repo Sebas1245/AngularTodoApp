@@ -9,7 +9,7 @@ import { Todo } from '../../models/Todos';
 })
 export class TodosComponent implements OnInit {
 
-  todos: Todo[] | undefined;
+  todos: Todo[] = [];
 
   constructor(private todoService: TodosService) { 
     
@@ -26,5 +26,11 @@ export class TodosComponent implements OnInit {
     this.todos = this.todos?.filter(t => t.id !== todo.id)
     // Remove from server
     this.todoService.deleteTodo(todo).subscribe();
+  }
+
+  addTodo(todo: Todo) {
+    this.todoService.addTodo(todo).subscribe(addedTodo => {
+      this.todos.push(addedTodo);
+    })
   }
 }

@@ -10,7 +10,7 @@
   }
   
   a {
-    color: rgb(9, 47, 216);
+    color: #333;
     text-decoration: none;
   }
   
@@ -21,12 +21,12 @@
   .btn {
     display: inline-block;
     border: none;
-    background: rgb(9, 47, 216);;
+    background: #333;
     color: #fff;
     padding: 7px 20px;
     cursor: pointer;
   }
   
   .btn:hover {
-    background: rgb(9, 47, 216);
+    background: #333;
   }
