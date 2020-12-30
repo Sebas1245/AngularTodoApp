@@ -3,6 +3,12 @@ import { Observable } from 'rxjs'
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 
 import { Todo } from '../models/Todos'
+
+const httpOptions = {
+  headers: new HttpHeaders ({
+    'Content-Type': 'application/json'
+  })
+}
 @Injectable({
   providedIn: 'root'
 })
@@ -17,5 +23,15 @@ export class TodosService {
 
   getTodos():Observable<Todo[]> {
     return this.http.get<Todo[]>(`${this.todosUrl}${this.limit}`);
+  }
+
+  toggleCompleted(todo:Todo):Observable<any> {
+    const url = `${this.todosUrl}/${todo.id}`
+    return this.http.put(url, todo, httpOptions)
+  }
+
+  deleteTodo(todo:Todo):Observable<Todo>{
+    const url = `${this.todosUrl}/${todo.id}`
+    return this.http.delete<Todo>(url,httpOptions);    
   }
 }

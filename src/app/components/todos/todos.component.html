@@ -2,6 +2,10 @@
     Todos
 </h1>
 
-<app-item *ngFor="let todo of todos" [todo] = "todo">
+<app-item 
+*ngFor="let todo of todos" 
+[todo] = "todo"
+(deleteTodo) = "deleteTodo($event)"
+>
 
 </app-item>
